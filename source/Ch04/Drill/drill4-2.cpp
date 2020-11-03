@@ -2,29 +2,9 @@
 
 int main()
 {
-	/*
-	double n1;
-	double n2;
-
-	while(cin >> n1 >> n2)
-	{
-		if (n1 == n2)
-        {
-            cout << "The numbers are equal!\n";
-        }
-        else if (n1 < n2)
-        {
-            cout << "The smaller value is: " << n1 << "!\n";
-            cout << "The larger value is: " << n2 << "!\n";
-        }
-        else
-        {
-            cout << "The smaller value is: " << n2 << "!\n";
-            cout << "The larger value is: " << n1 << "!\n";
-        }
-        if(abs(n2-n1)<0.01) cout << "The numbers are almost equal!\n";
-	}
-	*/
+	const double cm_per_inch=2.54;
+	const double cm_per_m=100;
+	const double ft_per_inc=12;
 
 	int db=0;
 	double n;
@@ -43,15 +23,15 @@ int main()
 		}
 		else if(unit=="cm")
 		{
-			n=n/100;
+			n=n/cm_per_m;
 		}
 		else if(unit=="in")
 		{
-			n=(n*2.54)/100;
+			n=(n*cm_per_inch)/cm_per_m;
 		}
 		else if(unit=="ft")
 		{
-			n=(n*12*2.54)/100;
+			n=(n*ft_per_inc*cm_per_inch)/cm_per_m;
 		}
 		else
 		{
@@ -83,5 +63,7 @@ int main()
           cout << num << " ";
      }
 
+    cout << "\nThe smallest: " << numbers[0] << "!\n";
+    cout << "The largest: " << numbers[numbers.size()-1] << "!\n";
 	return 0;
 }
